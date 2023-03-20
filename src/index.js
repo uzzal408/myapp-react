@@ -1,5 +1,7 @@
+/* eslint-disable no-undef */
 import React from "react";
 import ReactDOM from "react-dom";
+import PropTypes from "prop-types";
 
 // Functional Component
 
@@ -14,18 +16,27 @@ import ReactDOM from "react-dom";
 
 // Class Component Component
 
-class Clock {
-  print() {
+class Clock extends React.Component {
+  static propTypes = {
+    locale: PropTypes.string.isRequired,
+    children: PropTypes.string.isRequired,
+  };
+  render() {
     return (
+      // eslint-disable-next-line react/jsx-no-comment-textnodes
       <h1 className="heading">
-        <span>Hello, {new Date().toLocaleTimeString()}</span>
+        <span>
+          Hello, {this.props.children}-
+          {new Date().toLocaleTimeString(this.props.locale)}
+        </span>
       </h1>
     );
   }
 }
-const clock = new Clock();
-
-ReactDOM.render(clock.print(), document.getElementById("root"));
+ReactDOM.render(
+  <Clock locale="bn-BD"> Test </Clock>,
+  document.getElementById("root")
+);
 
 // import ReactDOM from "react-dom/client";
 // import "./index.css";
