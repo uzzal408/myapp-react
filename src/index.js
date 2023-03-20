@@ -3,15 +3,29 @@ import ReactDOM from "react-dom";
 
 // Functional Component
 
-function Clock() {
-  return (
-    <h1 className="heading">
-      <span>Hello, {new Date().toLocaleTimeString()}</span>
-    </h1>
-  );
-}
+// eslint-disable-next-line react/prop-types
+// function Clock({ locale }) {
+//   return (
+//     <h1 className="heading">
+//       <span>Hello, {new Date().toLocaleTimeString(locale)}</span>
+//     </h1>
+//   );
+// }
 
-ReactDOM.render(Clock(), document.getElementById("root"));
+// Class Component Component
+
+class Clock {
+  print() {
+    return (
+      <h1 className="heading">
+        <span>Hello, {new Date().toLocaleTimeString()}</span>
+      </h1>
+    );
+  }
+}
+const clock = new Clock();
+
+ReactDOM.render(clock.print(), document.getElementById("root"));
 
 // import ReactDOM from "react-dom/client";
 // import "./index.css";
