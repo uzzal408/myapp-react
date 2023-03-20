@@ -1,8 +1,19 @@
 import React from "react";
 import ReactDOM from "react-dom";
-const element = React.createElement("h1", "", "Hello Element");
+// element;
+// const element = React.createElement("h1", "", "Hello Element");
+// jsx
+// const jsx = <h1>Hello React, From Jsx</h1>;
 
-ReactDOM.render(element, document.getElementById("root"));
+setInterval(() => {
+  const immutubleJsx = (
+    <h1 className="heading">
+      <span>Hello, {new Date().toLocaleTimeString()}</span>
+    </h1>
+  );
+
+  ReactDOM.render(immutubleJsx, document.getElementById("root"));
+}, 1000);
 
 // import ReactDOM from "react-dom/client";
 // import "./index.css";
