@@ -1,13 +1,9 @@
 import React from "react";
-import PropTypes from "prop-types";
 class Clock extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { date: new Date() };
+    this.state = { date: new Date(), locale: "bn-BD" };
   }
-  static propTypes = {
-    locale: PropTypes.string.isRequired,
-  };
 
   componentDidMount() {
     this.clocktimer = setInterval(() => this.timer(), 1000);
@@ -22,13 +18,20 @@ class Clock extends React.Component {
       date: new Date(),
     });
   }
-
+  changeTimeType = (locale) => {
+    this.setState({
+      locale,
+    });
+  };
   render() {
+    const { date, locale } = this.state;
     return (
-      // eslint-disable-next-line react/jsx-no-comment-textnodes
-      <h1 className="heading">
-        <span>{this.state.date.toLocaleTimeString(this.props.locale)}</span>
-      </h1>
+      <div>
+        <h1 className="heading">
+          <span>{date.toLocaleTimeString(locale)}</span>
+        </h1>
+        <button onClick={() => this.changeTimeType("en-US")}>Click Me</button>
+      </div>
     );
   }
 }
