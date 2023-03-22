@@ -1,10 +1,11 @@
 import "./App.css";
-import Clock from "./components/Clock";
+import ClockList from "./components/ClockList";
 
 function App() {
+  const quantity = [1, 2, 3, 4];
   return (
     <div className="App">
-      <Clock locale="bn-BD" />
+      <ClockList quantity={quantity} />
     </div>
   );
 }
